@@ -1,0 +1,20 @@
+const express = require('express')
+
+const redis = require('redis')
+const app = express();
+
+
+app.use(express.json());
+app.use(express.urlencoded());
+
+
+
+
+
+
+
+
+app.listen(8000,()=>{
+    console.log("I am running")
+})
+
