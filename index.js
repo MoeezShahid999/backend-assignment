@@ -1,20 +1,15 @@
-const express = require('express')
-
-const redis = require('redis')
+const express = require("express");
+const route = require("./route/routes");
+const redis = require("redis");
 const app = express();
-
+const errorController = require("./errorController/errorController");
 
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({extended:true}));
 
+app.use("/", route);
 
-
-
-
-
-
-
-app.listen(8000,()=>{
-    console.log("I am running")
-})
-
+app.use(errorController);
+app.listen(8000, () => {
+  console.log("I am running");
+});
